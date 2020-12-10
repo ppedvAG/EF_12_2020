@@ -47,5 +47,10 @@ namespace EfCodeFirst
         {
             dataGridView1.DataSource = context.Mitarbeiter.ToList();
         }
+
+        private void SpeichernButton_Click(object sender, EventArgs e)
+        {
+            context.SaveChanges();
+        }
     }
 }

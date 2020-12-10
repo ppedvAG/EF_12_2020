@@ -63,6 +63,19 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202012101254221_InitialCreate.cs" />
+    <Compile Include="Migrations\202012101254221_InitialCreate.designer.cs">
+      <DependentUpon>202012101254221_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202012101345436_V2u3.cs" />
+    <Compile Include="Migrations\202012101345436_V2u3.designer.cs">
+      <DependentUpon>202012101345436_V2u3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202012101412487_V12.cs" />
+    <Compile Include="Migrations\202012101412487_V12.designer.cs">
+      <DependentUpon>202012101412487_V12.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Abteilung.cs" />
     <Compile Include="Model\Kunde.cs" />
     <Compile Include="Model\Mitarbeiter.cs" />
@@ -71,6 +84,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012101254221_InitialCreate.resx">
+      <DependentUpon>202012101254221_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012101345436_V2u3.resx">
+      <DependentUpon>202012101345436_V2u3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012101412487_V12.resx">
+      <DependentUpon>202012101412487_V12.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

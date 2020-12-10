@@ -16,7 +16,17 @@ namespace EfCodeFirst.Data
 
         // public EfContext() : base("Server=(localdb)\\mssqllocaldb;Database=EfCodeFirst;Trusted_Connection=true")
         public EfContext() : base("name=myConString")
-        { }
+        {
+
+#if DEBUG
+            Database.SetInitializer<EfContext>(null);  //so kommt kein Migration Check
+#endif
+
+            //Database.SetInitializer(new MigrateDatabaseToLatestVersion<EfContext, Migrations.Configuration>());
+            //Database.SetInitializer(new DropCreateDatabaseIfModelChanges<EfContext>());
+            //Database.SetInitializer(new DropCreateDatabaseAlways<EfContext>());
+
+        }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -30,7 +40,8 @@ namespace EfCodeFirst.Data
             //modelBuilder.Entity<Abteilung>().Ignore(x => x.Bezeichnung);
 
             //TpT bzw TpCp (je nach DbSet Person)
-            /*modelBuilder.Entity<Person>().ToTable("Opfer")*/;
+            /*modelBuilder.Entity<Person>().ToTable("Opfer")*/
+            ;
             modelBuilder.Entity<Mitarbeiter>().ToTable("Mitarbeiter");
             modelBuilder.Entity<Kunde>().ToTable("Kunden");
 
