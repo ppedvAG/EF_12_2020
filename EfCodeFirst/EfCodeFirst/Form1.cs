@@ -15,11 +15,12 @@ namespace EfCodeFirst
 
         EfContext context = new EfContext();
 
-        private void button2_Click(object sender, EventArgs e)
+        private void DemoDatenButton_click(object sender, EventArgs e)
         {
             var abt1 = new Abteilung() { Bezeichnung = "Holz" };
             var abt2 = new Abteilung() { Bezeichnung = "Steine" };
 
+            Mitarbeiter mm;
             for (int i = 0; i < 100; i++)
             {
                 var m = new Mitarbeiter()
@@ -36,11 +37,13 @@ namespace EfCodeFirst
                     m.Abteilungen.Add(abt2);
 
                 context.Mitarbeiter.Add(m);
+
+                mm = m;
             }
             context.SaveChanges();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void LadenButton_click(object sender, EventArgs e)
         {
             dataGridView1.DataSource = context.Mitarbeiter.ToList();
         }

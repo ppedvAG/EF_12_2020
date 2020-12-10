@@ -2,7 +2,7 @@
 
 namespace EfCodeFirst.Model
 {
-    class Mitarbeiter : Person
+    partial class Mitarbeiter : Person
     {
         public string Beruf { get; set; }
         public virtual ICollection<Kunde> Kunden { get; set; } = new HashSet<Kunde>();

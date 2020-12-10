@@ -62,7 +62,7 @@ namespace EfCodeFirst
             this.button1.TabIndex = 0;
             this.button1.Text = "Laden";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.LadenButton_click);
             // 
             // dataGridView1
             // 
@@ -86,7 +86,7 @@ namespace EfCodeFirst
             this.button2.TabIndex = 1;
             this.button2.Text = "Demo daten erstellen";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.Click += new System.EventHandler(this.DemoDatenButton_click);
             // 
             // Form1
             // 
