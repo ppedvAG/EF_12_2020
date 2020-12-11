@@ -14,10 +14,10 @@ namespace ppedv.GiftManager.UI.DevConsole
         static void Main(string[] args)
         {
             Console.OutputEncoding = Encoding.UTF8;
-            Console.WriteLine("*** GiftManager ***");
+            Console.WriteLine("*** GiftManager 🎁🎁🎁 ***");
 
             var core = new Core();
-            var alleProds = core.Repository.GetAll<Produkt>();
+            var alleProds = core.Repository.Query<Produkt>().Where(x => x.Preis > 5).ToList();
 
             try
             {
@@ -29,7 +29,7 @@ namespace ppedv.GiftManager.UI.DevConsole
 
 
                 core.Repository.SaveAll();
-                Console.WriteLine("Speichern erfolgreich");
+                Console.WriteLine("Speichern 😎 erfolgreich");
             }
             catch (ConcurrencyException ex)
             {
