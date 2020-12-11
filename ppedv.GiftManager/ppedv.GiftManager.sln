@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ppedv.GiftManager.Model", "ppedv.GiftManager.Model\ppedv.GiftManager.Model.csproj", "{64D565FF-0182-47D2-82B1-0959CFE17213}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ppedv.GiftManager.Data.EF", "ppedv.GiftManager.Data.EF\ppedv.GiftManager.Data.EF.csproj", "{4D2ECD6F-A2A3-4F67-A563-57FF5985609A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ppedv.GiftManager.Data.EF.Tests", "ppedv.GiftManager.Data.EF.Tests\ppedv.GiftManager.Data.EF.Tests.csproj", "{1D12C5A2-A13E-4753-A794-6391DF3AA330}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{64D565FF-0182-47D2-82B1-0959CFE17213}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{64D565FF-0182-47D2-82B1-0959CFE17213}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{64D565FF-0182-47D2-82B1-0959CFE17213}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D2ECD6F-A2A3-4F67-A563-57FF5985609A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D2ECD6F-A2A3-4F67-A563-57FF5985609A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D2ECD6F-A2A3-4F67-A563-57FF5985609A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D2ECD6F-A2A3-4F67-A563-57FF5985609A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D12C5A2-A13E-4753-A794-6391DF3AA330}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D12C5A2-A13E-4753-A794-6391DF3AA330}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D12C5A2-A13E-4753-A794-6391DF3AA330}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D12C5A2-A13E-4753-A794-6391DF3AA330}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

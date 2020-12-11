@@ -8,7 +8,7 @@ namespace ppedv.GiftManager.Model
         public DateTime GeschenkDatum { get; set; }
         public virtual Anlass Anlass { get; set; }
         public virtual ICollection<Produkt> Produkte { get; set; } = new HashSet<Produkt>();
-        public virtual Person Beschenkter { get; set; }
-        public virtual ICollection<Person> Schenker { get; set; } = new HashSet<Person>();
+        public virtual Person BeschenktePerson { get; set; }
+        public virtual ICollection<Person> SchenkendePersonen { get; set; } = new HashSet<Person>();
     }
 }
