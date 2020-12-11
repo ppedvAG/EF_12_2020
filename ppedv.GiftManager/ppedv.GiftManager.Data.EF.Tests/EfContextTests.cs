@@ -3,6 +3,7 @@ using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ppedv.GiftManager.Model;
 using System;
+using System.Data.SqlClient;
 using System.Threading;
 
 namespace ppedv.GiftManager.Data.EF.Tests
@@ -119,8 +120,8 @@ namespace ppedv.GiftManager.Data.EF.Tests
             using (var con = new EfContext())
             {
                 var loaded = con.Produkte.Find(prod.Id);
-                loaded.Created.Should().BeCloseTo(nowCreated,5000);
-                loaded.Modified.Should().BeCloseTo(nowCreated,5000);
+                loaded.Created.Should().BeCloseTo(nowCreated, 5000);
+                loaded.Modified.Should().BeCloseTo(nowCreated, 5000);
                 Thread.Sleep(5000);
                 loaded.Bezeichnung = "lala";
 
@@ -132,10 +133,33 @@ namespace ppedv.GiftManager.Data.EF.Tests
             using (var con = new EfContext())
             {
                 var loaded = con.Produkte.Find(prod.Id);
-                loaded.Created.Should().BeCloseTo(nowCreated,5000);
-                loaded.Modified.Should().BeCloseTo(nowMod,5000);
+                loaded.Created.Should().BeCloseTo(nowCreated, 5000);
+                loaded.Modified.Should().BeCloseTo(nowMod, 5000);
 
                 loaded.Modified.Should().NotBe(loaded.Created);
+            }
+        }
+
+        [TestMethod]
+        public void EfContext_Trans()
+        {
+            using (var sqlCon = new SqlConnection(("Server=(localdb)\\mssqllocaldb;Database=GiftManager_dev;Trusted_Connection=true")))
+            {
+                sqlCon.Open();
+                using (var trans = sqlCon.BeginTransaction(System.Data.IsolationLevel.Serializable))
+                {
+
+                    using (var con = new EfContext(sqlCon))
+                    {
+                        con.Database.UseTransaction(trans);
+
+                        var prod = con.Produkte.Find(1);
+                        prod.Preis += 1;
+                        con.SaveChanges();
+
+                        trans.Commit();
+                    }
+                }
             }
         }
     }

@@ -1,6 +1,8 @@
 ﻿using ppedv.GiftManager.Model;
+using ppedv.GiftManager.Model.Fault;
 using System;
 using System.Data;
+using System.Data.Common;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
@@ -16,13 +18,18 @@ namespace ppedv.GiftManager.Data.EF
 
         public EfContext(string conString) : base(conString)
         { }
+        public EfContext(DbConnection con) : base(con, false)
+        {
 
+        }
         public EfContext() : this("Server=(localdb)\\mssqllocaldb;Database=GiftManager_dev;Trusted_Connection=true")
         { }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+
+            modelBuilder.Entity<Produkt>().Property(x => x.Modified).IsConcurrencyToken();
 
             modelBuilder.Entity<Geschenk>().HasRequired(geschenk => geschenk.BeschenktePerson)
                                            .WithMany(person => person.GeschenkeErhalten)
@@ -62,7 +69,39 @@ namespace ppedv.GiftManager.Data.EF
                 ((Entity)item.Entity).ModifiedBy = Environment.UserName;
             }
 
-            return base.SaveChanges();
+
+            try
+            {
+                return base.SaveChanges();
+            }
+            catch (System.Data.Entity.Infrastructure.DbUpdateConcurrencyException ex)
+            {
+                var myConEx = new ConcurrencyException("my Concurrency Exception Text..");
+                myConEx.DbWins = () =>
+                {
+                    foreach (var item in ex.Entries)
+                    {
+                        item.CurrentValues.SetValues(item.GetDatabaseValues());
+                    }
+                };
+
+                myConEx.UserWins = () =>
+                {
+                    foreach (var item in ex.Entries)
+                    {
+                        item.OriginalValues.SetValues(item.GetDatabaseValues());
+                        item.State = EntityState.Modified;
+                    }
+                    SaveChanges();
+                };
+
+                throw myConEx;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
         }
 
     }
