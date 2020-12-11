@@ -24,6 +24,11 @@ namespace ppedv.GiftManager.Data.EF
             context.Set<T>().Remove(entity);
         }
 
+        public void Dispose()
+        {
+            context.Dispose();
+        }
+
         public IEnumerable<T> GetAll<T>() where T : Entity
         {
             return context.Set<T>().ToList();

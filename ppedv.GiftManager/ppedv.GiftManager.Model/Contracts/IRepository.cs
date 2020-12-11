@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ppedv.GiftManager.Model.Contracts
 {
-    public interface IRepository
+    public interface IRepository : IDisposable
     {
         IEnumerable<T> GetAll<T>() where T : Entity;
         IQueryable<T> Query<T>() where T : Entity;
