@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ppedv.GiftManager.Data.EF\ppedv.GiftManager.Data.EF.csproj" />
+    <ProjectReference Include="..\ppedv.GiftManager.Model\ppedv.GiftManager.Model.csproj" />
+  </ItemGroup>
+
+</Project>

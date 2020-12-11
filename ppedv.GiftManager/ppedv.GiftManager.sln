@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ppedv.GiftManager.Data.EF",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ppedv.GiftManager.Data.EF.Tests", "ppedv.GiftManager.Data.EF.Tests\ppedv.GiftManager.Data.EF.Tests.csproj", "{1D12C5A2-A13E-4753-A794-6391DF3AA330}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ppedv.GiftManager.Logic", "ppedv.GiftManager.Logic\ppedv.GiftManager.Logic.csproj", "{A95E2B0F-E617-4D8E-B78A-EEF26E602CA4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{1D12C5A2-A13E-4753-A794-6391DF3AA330}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1D12C5A2-A13E-4753-A794-6391DF3AA330}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1D12C5A2-A13E-4753-A794-6391DF3AA330}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A95E2B0F-E617-4D8E-B78A-EEF26E602CA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A95E2B0F-E617-4D8E-B78A-EEF26E602CA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A95E2B0F-E617-4D8E-B78A-EEF26E602CA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A95E2B0F-E617-4D8E-B78A-EEF26E602CA4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
