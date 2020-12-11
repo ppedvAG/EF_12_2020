@@ -12,6 +12,8 @@ namespace ppedv.GiftManager.Logic
             this.Repository = repo;
         }
 
+
+
         public Core() : this(new Data.EF.EfRepository())
         { }
     }
